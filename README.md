@@ -133,8 +133,6 @@ ludus:
     roles:
       - aleemladha.ludus_wazuh_agent
     role_vars:
-      # IMPORTANT: Ludus renders the manager IP as 10.<range_id>.20.10.
-      # Do NOT place a non-numeric range_id directly into an IP octet.
       ludus_wazuh_siem_server: "10.{{ range_id }}.20.10"
       wazuh_agent_version: "4.9.0"
       wazuh_agent_groups:
@@ -160,25 +158,6 @@ ludus:
       wazuh_agent_groups:
         - "default"
 ```
-
----
-
-## ⚠️ Template Note
-
-In Ludus, `range_id` must be numeric when embedded into an IP address.  
-If your range ID is something like `userrange`, the rendered address will be invalid:
-
-```text
-ERROR: Could not resolve hostname: 10.userrange.20.10
-```
-
-For teaching, you can either:
-
-- Use a numeric range ID (e.g. `10`) so the IP becomes `10.10.20.10`, or
-- Replace the dynamic IP with a static one that matches your lab network
-
-Your final configuration **must produce a valid IPv4 address**.
-
 ---
 
 ## 🚀 Apply and Deploy
