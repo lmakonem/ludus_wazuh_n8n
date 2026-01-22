@@ -1,13 +1,10 @@
 ---
-# Defaults for ludus_wazuh_n8n
-
-wazuh_repo_url: "https://github.com/wazuh/wazuh-docker.git"
-wazuh_version: "v4.9.0"
-
+# Defaults for ludus_n8n
 n8n_postgres_user: "n8n"
 n8n_postgres_password: "changemeStrong123"
 n8n_postgres_db: "n8n"
 
+# n8n runtime settings
 n8n_port: 5678
 n8n_timezone: "America/Chicago"
 n8n_secure_cookie: false
