@@ -6,7 +6,7 @@ This Ludus role deploys an **n8n + Postgres automation server (Docker)** on a De
 
 ---
 
-## 🧭 Architecture Overview
+## 🧭 Example Usecase Architecture Overview
 
 ```mermaid
 flowchart LR
