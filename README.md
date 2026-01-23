@@ -103,7 +103,7 @@ ludus:
     hostname: "{{ range_id }}-wazuh-siem"
     template: ubuntu-22.04-x64-server-template
     vlan: 20
-    ip_last_octet: 11             # -> 10.2.20.11 in current range [file:112]
+    ip_last_octet: 11             
     ram_gb: 8
     cpus: 4
     linux: true
@@ -120,7 +120,7 @@ ludus:
     hostname: "{{ range_id }}-n8n-server"
     template: debian-12-x64-server-template
     vlan: 20
-    ip_last_octet: 10             # -> 10.2.20.10 [file:112]
+    ip_last_octet: 10        
     ram_gb: 6
     cpus: 4
     linux: {}
@@ -135,7 +135,7 @@ ludus:
     hostname: "{{ range_id }}-win11-client-1"
     template: win11-22h2-x64-enterprise-template
     vlan: 20
-    ip_last_octet: 20             # -> 10.2.20.20 [file:112]
+    ip_last_octet: 20        
     ram_gb: 4
     cpus: 2
     windows: {}
@@ -145,20 +145,19 @@ ludus:
     roles:
       - aleemladha.ludus_wazuh_agent
     role_vars:
-      # MSI package exactly as before
+      # MSI package
       wazuh_agent_install_package: "https://packages.wazuh.com/4.x/windows/wazuh-agent-4.9.0-1.msi"
-      # Public manager variable (from README) [web:57]
+      # Public manager variable
       ludus_wazuh_siem_server: "10.2.20.11"
       # Internal variants the role code expects in different places
-      wazuhmanagerhost: "10.2.20.11"      # what Ludus has been flattening [file:112]
-      wazuh_manager_host: "10.2.20.11"    # what windows.yml is referencing in the error [file:112]
-
+      wazuhmanagerhost: "10.2.20.11"      # what Ludus has been flattening
+      wazuh_manager_host: "10.2.20.11"    # what windows.yml is referencing 
   # Ubuntu 22.04 client with Wazuh agent
   - vm_name: "{{ range_id }}-ubuntu-client-1"
     hostname: "{{ range_id }}-ubuntu-client-1"
     template: ubuntu-22.04-x64-server-template
     vlan: 20
-    ip_last_octet: 21             # -> 10.2.20.21 [file:112]
+    ip_last_octet: 21           
     ram_gb: 4
     cpus: 2
     linux: {}
